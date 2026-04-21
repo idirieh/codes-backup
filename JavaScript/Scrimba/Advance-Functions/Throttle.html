@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100%;
+        }
+        div {
+            margin: 25vh auto;
+            width: 50%;
+        }
+        h1 {
+            padding: 1em;
+        }
+    </style>
+    <title>Throttle</title>
+</head>
+<body>
+
+    <div class="">
+        <h1>Resize the Window</h1>
+    </div>
+
+    <script>
+        // Scrimba Solution
+        // const handleResize = (e) => {
+        //     console.log('resize happened on event:', e);
+        // };
+
+        // function throttle(func, delay){
+        //     let throttleTimeOut = null;
+        //     return () => {
+        //         if(!throttleTimeOut){
+        //             func(this, arguments)
+        //             throttleTimeOut = setTimeout(() => {
+        //                 throttleTimeOut =null
+        //             }, delay);
+        //         }
+        //     }
+        // }
+
+        // const throttledHandleResize = throttle(handleResize, 1000)
+        // window.addEventListener('resize', throttledHandleResize);
+
+        /****************************************************************************************************************/
+
+        // LLM
+        // const handleResize = (e) => {
+        //     console.log('resize happened on event:', e);
+        // };
+
+        // const throttle = (func, delay) => {
+        //     let timeoutId = null;
+            
+        //     return (...args) => {
+        //         if (!timeoutId) {
+        //             func(...args);
+        //             timeoutId = setTimeout(() => {
+        //                 timeoutId = null;
+        //             }, delay);
+        //         }
+        //     };
+        // };
+
+        // const throttledHandleResize = throttle(handleResize, 1000);
+        // window.addEventListener('resize', throttledHandleResize);
+
+        /****************************************************************************************************************/
+
+        /*
+        /*
+            Challenge:
+            1. Recreate the logic using an arrow function. 
+            🤔 What is the best way to pass arguments remembering 
+            that ideally this throttle function is reusable?
+            🛟 hint.md for help! 
+            When using an arrow function, you could do this just by passing in a param like ‘event’. But what if there are times when the param won’t be an event? What if there is more than one param? Luckily, we can use rest params to take in as many params as necessary!
+        */
+
+
+
+
+        // const handleResize = (e) => {
+        //     console.log('resize happened on event:', e);
+        // };
+
+        // function throttle(func, delay){
+        //     let throttleTimeOut = null;
+        //     return () => {
+        //         if(!throttleTimeOut){
+        //             func(this, arguments)
+        //             throttleTimeOut = setTimeout(() => {
+        //                 throttleTimeOut =null
+        //             }, delay);
+        //         }
+        //     }
+        // }
+
+        // const throttledHandleResize = throttle(handleResize, 1000)
+        // window.addEventListener('resize', throttledHandleResize);
+
+
+        /****************************************************************************************************************/
+
+        //Chatgpt
+        // const throttle = delay => func => {
+        //     let timeoutId = null;
+
+        //     return (...args) => {
+        //         if (!timeoutId) {
+        //             func(...args);
+        //             timeoutId = setTimeout(() => timeoutId = null, delay);
+        //         }
+        //     };
+        // };
+
+        // const handleResize = e => console.log('resize happened on event:', e);
+
+        // const throttledHandleResize = throttle(1000)(handleResize);
+        // window.addEventListener('resize', throttledHandleResize);
+
+        const throttle = (func, delay) => {
+            let timeoutId = null;
+
+            return (...args) => {
+                if (!timeoutId) { //if null similar to (timeoutId == null)               
+                    func(...args);
+                    timeoutId = setTimeout(() => timeoutId = null, delay);
+                }
+            };
+        };
+
+        const handleResize = e => console.log('resize happened on event:', e);
+
+        window.addEventListener('resize', throttle(handleResize, 1000));
+
+
+
+    </script>
+</body>
+</html>

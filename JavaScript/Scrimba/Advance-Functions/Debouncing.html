@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debouncing</title>
+</head>
+<body>
+    <label for="">Name:</label>
+    <input type="text" id="name-input">
+
+
+    <script>
+
+        // function debounce(func, delay) {
+        //     let timeoutId;
+        //     return (...args) => {
+        //         if(!timeoutId){
+        //             clearTimeout(timeoutId); // cancels the previous timer
+
+        //             func(...args)
+        //             timeoutId = setTimeout(() => timeoutId = null, delay);
+        //         }
+        //     }
+
+        // }
+        
+
+
+        // function handleInput(e){
+        //     console.log("Input detected from element with id ", e.target.id)
+        // }
+
+        // const debounceHndleInput = debounce(handleInput, 1000)
+        // // document.querySelector('input[type="text"]').addEventListener('input', debounceHndleInput)
+        // document.getElementById('name-input').addEventListener('input', debounceHndleInput)
+
+        /*************************************************************************************************************************/
+
+        // const debounce = (func, delay) => {
+        //     let timeoutId;
+        //     console.log(!timeoutId)
+        //     if(!timeoutId) {
+        //         console.log("Yes")
+        //     }
+        //     return (...args) => {
+        //         clearTimeout(timeoutId); // clear previous timeout
+        //         timeoutId = setTimeout(() => func(...args), delay);
+        //     };
+        // };
+
+        // const handleInput = e =>
+        //     console.log("Input detected from element with id", e.target.id);
+
+        // const debounceHandleInput = debounce(handleInput, 1000);
+
+        // document.getElementById('name-input').addEventListener('input', debounceHandleInput);
+
+
+        const debounce = (func, delay) => {
+            let debounceTimer;
+            return (...args) => {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => func(...args), delay);
+            };
+        };
+
+        const handleInput = (e) => {
+            if(e.target.value){
+                console.log("Typed:", e.target.value);
+            }
+            
+        };
+
+        const debouncedInput = debounce(handleInput, 1000);
+
+        document.getElementById("name-input").addEventListener("input", debouncedInput);
+
+
+    </script>
+</body>
+</html>

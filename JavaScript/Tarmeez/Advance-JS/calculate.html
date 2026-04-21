@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        background-color: aqua;
+        text-align: center;
+        width: 400px;
+        padding: 2em;
+        margin: 25vh auto;
+      }
+      #add-btn {
+        background-color: black;
+        color: #fff;
+        font-family: inherit;
+        font-size: 1.2rem;
+        border: none;
+        outline: none;
+        padding: 0.5em 1em;
+        margin: 1em;
+        cursor: pointer;
+      }
+    </style>
+    <title>Calculate</title>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h3 for="f-num">First number</h3>
+        <input type="number" id="f-num" autofocus />
+      </div>
+      <div>
+        <h3 for="s-num">Second number</h3>
+        <input type="number" id="s-num" />
+      </div>
+      <div>
+        <button id="add-btn">Add</button>
+      </div>
+      <div id="result">0</div>
+    </div>
+
+    <script>
+      const firstNumber = document.getElementById("f-num");
+      const secondNumber = document.getElementById("s-num");
+      const addBtn = document.getElementById("add-btn");
+
+      addBtn.addEventListener("click", () => {
+        let result = Number(firstNumber.value) + Number(secondNumber.value);
+        document.getElementById("result").innerText = result;
+      });
+    </script>
+  </body>
+</html>

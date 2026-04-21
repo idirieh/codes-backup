@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        height: 3000px;
+        font-size: 1.3rem;
+      }
+      #btn,
+      input[type="submit"] {
+        background-color: antiquewhite;
+        font-size: 1.3rem;
+        padding: 1em 2em;
+        border: none;
+        border-radius: 5px;
+      }
+      input[type="text"] {
+        padding: 1.5em;
+      }
+      div {
+        text-align: center;
+        width: 400px;
+        margin: 3em;
+        padding: 1em;
+        border: 1px solid black;
+      }
+    </style>
+    <title>DOM Events</title>
+  </head>
+  <body>
+    <button id="btn" onclick="console.log('clicked')">Button</button>
+    <hr />
+    <form action="">
+      <input type="text" class="name" name="name" placeholder="Name" />
+      <input type="text" class="title" name="title" placeholder="Title" />
+      <input type="submit" value="Submit-date" />
+    </form>
+    <a href="http://www.google.com">Google</a>
+    <div id="mydiv" class="thediv one two three test best">
+      My Div with classes
+    </div>
+    <div id="add">Adding Class</div>
+    <div id="toggle">Toggle Class</div>
+    <div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, in!</p>
+    </div>
+    <script src="dom-2.js"></script>
+  </body>
+</html>

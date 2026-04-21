@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+     <script src="./node_modules/axios/dist/axios.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        :root {
+            --clr-primary: #00c1ca;
+            --clr-gradient1: #0082c8;
+            --clr-gradient2: #0082c8;
+            --clr-gradient3: #667db6;
+        }
+    </style>
+    <title>Axios</title>
+</head>
+<body>
+    
+    <h1 class="title">Welcome To <span>Axios</span></h1>
+    <div class="container">
+        <div id="users-info">
+            <div class="user-info">
+                <h3 id="user-name">Example</h3>
+                <p id="user-email">example@copmany.com</p>
+                <button class="btn">Get Details</button>
+            </div>
+        </div>
+        <div id="users-post">
+            <div class="post">
+                <h3 id="post-title">Example</h3>
+                <hr>
+                <p id="post-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, exercitationem.</p>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script>
+        function testAxios() {
+            axios.get('https://jsonplaceholder.typicode.com/posts')
+            .then(function (response) {
+                // handle success
+                console.log(response);
+                let posts = response.data;
+                for(post of posts) {
+                    console.log(post)
+                }
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+                console.log("Finally")
+                // always executed
+            });
+        }
+
+    </script>
+</body>
+</html>

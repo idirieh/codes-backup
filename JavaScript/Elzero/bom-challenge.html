@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: system-ui;
+        font-size: 1.2rem;
+      }
+      .container {
+        width: min(90ch, 100% - 4rem);
+        margin-inline: auto;
+      }
+      .form {
+        background-color: hsl(0, 12%, 90%);
+        text-align: center;
+        padding: 1.5em 1em;
+        margin-top: 2em;
+        border-radius: 10px;
+      }
+      .new-task {
+        font-size: inherit;
+        width: 70%;
+        padding: 0.85em;
+        outline: none;
+        border: none;
+        border-radius: 8px;
+        vertical-align: middle;
+      }
+      .btn {
+        background-color: hsl(16, 100%, 50%);
+        font-size: 1.125rem;
+        color: #fff;
+        width: 15%;
+        outline: none;
+        border: none;
+        border-radius: 8px;
+        padding: 0.9em;
+        margin: 0.2rem;
+        cursor: pointer;
+        vertical-align: middle;
+      }
+      .btn:hover {
+        background-color: rgba(255, 68, 0, 0.8);
+      }
+      .tasks {
+        background-color: hsl(0, 12%, 90%);
+        width: 100%;
+        margin: 2em 0;
+        border-radius: 10px;
+        padding: 1em 0;
+      }
+      .task {
+        background-color: #fff;
+        width: 85%;
+        display: flex;
+        justify-content: space-between;
+        margin: 1em auto;
+        padding: 0.5em 1.3em;
+        border-radius: 10px;
+      }
+      .task h3 {
+        font-weight: normal;
+      }
+      .task span {
+        background-color: #dc3545;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: bold;
+        align-self: center;
+        padding: 0.6em 0.7em;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .task span:hover {
+        background-color: #c82333;
+      }
+    </style>
+    <title>BOM Challenge</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form">
+        <input class="new-task" type="text" autofocus />
+        <button class="btn">Add Task</button>
+      </div>
+      <div class="tasks">
+        <div class="task">
+          <h3>Read a Book</h3>
+          <span class="del">Delete</span>
+        </div>
+        <div class="task">
+          <h3>Play Sport</h3>
+          <span class="del">Delete</span>
+        </div>
+      </div>
+    </div>
+
+    <script src="bom-challenge.js"></script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: grid;
+            place-content: center;
+            font-weight: 700;
+            color: #fff;
+        }
+        .container {            
+            width: 400px;
+            height: 500px;      
+        }
+        .title {
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 15px 0;
+            background-color: tomato;
+        }
+        .box {
+            text-align: center;
+            background-color: tomato;
+            font-size: 55px; 
+            &:hover {
+                background-color: black;
+            }          
+        }
+        .wrapper {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 100px);
+            margin: 1em 0;
+        }
+        span {
+            color: yellow;
+        }
+    </style>
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title"><span>X O </span>GAME</div>
+        <div class="wrapper">
+            <div class="box" id="item1" onclick="game(this.id)"></div>
+            <div class="box" id="item2" onclick="game(this.id)"></div>
+            <div class="box" id="item3" onclick="game(this.id)"></div>
+
+            <div class="box" id="item4" onclick="game(this.id)"></div>
+            <div class="box" id="item5" onclick="game(this.id)"></div>
+            <div class="box" id="item6" onclick="game(this.id)"></div>
+            
+            <div class="box" id="item7" onclick="game(this.id)"></div>
+            <div class="box" id="item8" onclick="game(this.id)"></div>
+            <div class="box" id="item9" onclick="game(this.id)"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="app.js"></script>

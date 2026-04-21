@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>To-Do List </title>
+</head>
+<body class="bg-slate-300">    
+    <div class="container bg-white max-w-xl mx-auto py-5 px-3 mt-8 rounded-lg shadow-md">
+        <h1  class="text-[2.5rem] font-bold mb-5 text-center">To-Do List</h1>
+        <div class="new-task ">
+            <input type="text" 
+            placeholder="Add a new task"
+            class="min-w-100 py-2 px-4 ring-2 focus:outline-none focus:ring-2 ring-gray-600 focus:ring-blue-500 rounded-lg"
+            >
+            <button class="bg-blue-500 text-gray-50 py-2 px-4 rounded-lg cursor-pointer hover:bg-blue-800 font-medium ml-2" id="add">Add Task</button>            
+        </div>
+
+    </div>
+    <div class="container">
+    <div class="task-container bg-white mt-4 max-w-xl mx-auto border-gray-600 rounded-lg text-start p-2">
+        <div class="tesk text-lg">
+            <input type="checkbox" class="cursor-pointer" id="done" title="Complete the Task">
+            Finish the Tailwind Course
+            <button class="p-1 rounded hover:bg-red-100 cursor-pointer ml-70" title="Delete the Task">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3-fill text-red-500 hover:text-red-700 transition-colors" viewBox="0 0 16 16">
+                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"></path>
+                </svg>
+            </button>
+        </div>         
+    </div>
+        <div class="task-container bg-white mt-4 max-w-xl mx-auto border-gray-600 rounded-lg text-start p-2">
+        <div class="tesk text-lg">
+            <input type="checkbox" class="cursor-pointer" id="done" title="Complete the Task">
+            Finish the Tailwind Course
+            <button class="p-1 rounded hover:bg-red-100 cursor-pointer ml-70" title="Delete the Task">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3-fill text-red-500 hover:text-red-700 transition-colors" viewBox="0 0 16 16">
+                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5m-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5M4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06m6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528M8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5"></path>
+                </svg>
+            </button>
+        </div>         
+    </div>
+    </div>
+
+
+
+    <script>
+        const addTask = document.getElementById('add');
+        const userInput = document.querySelector('input[type="text"]');
+        const taskContainer = document.querySelector('.container');
+
+
+
+
+
+        const newTask = document.createElement('div');
+        const taskText = document.createTextNode = 'Do you homework';
+        // const divStyles = 'task-container bg-white mt-4 max-w-xl mx-auto border-gray-600 rounded-lg text-start p-2'.split(' ');
+        // newTask.classList.add(...divStyles);
+        const divClasses = `
+            task-container bg-white 
+            mt-4 max-w-xl 
+            mx-auto border-gray-600 
+            rounded-lg text-start p-2
+        `
+        newTask.className = divClasses;
+        newTask.append(taskText)
+        console.log(newTask)
+        document.body.appendChild(newTask)
+    </script>
+</body>
+</html>

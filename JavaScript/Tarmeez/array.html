@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Challenge</title>
+    <style>
+        .wrapper {
+            width: fit-content;
+            margin: 20vh auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <input type="text" id="text" autofocus>
+        <button id="submit-btn">Submit</button>
+        <button id="delete-btn">Delete</button>
+        <h2 id="arr"></h2>
+    </div>
+</body>
+<script>
+    let myArr = []
+    document.getElementById('submit-btn').addEventListener('click', function(){
+        let name = document.getElementById('text').value        
+        myArr.push(name)
+        document.getElementById('arr').innerHTML= myArr
+        document.getElementById('text').value = ''
+    })
+    document.getElementById('delete-btn').addEventListener('click', function(){      
+        myArr.pop()
+        document.getElementById('arr').innerHTML= myArr
+    })
+    
+    
+
+</script>
+
+</html>

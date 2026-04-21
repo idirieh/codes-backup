@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous Function</title>
+    <style>
+        body{
+            background-color: orange;
+            min-height: 100vh;
+            display: grid;
+            place-content: center;
+            transition: all 500ms;
+        }
+        button {
+            background-color: #fff;
+            color: black;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            outline: none;
+            padding: 2rem 5rem;
+            border-radius: 10px;
+            box-shadow: 0px 5px 25px rgba(22, 22, 22, 50%);
+        }
+        button:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="start-btn">Start</button>
+    <script>
+        document.getElementById('start-btn').addEventListener('click', function(){
+
+            this.style.backgroundColor = generateRandomRGB()
+            setInterval(() => {
+                document.body.style.backgroundColor = generateRandomRGB()
+            }, 2000);
+            
+        })
+        // function generateRandomNumber(){
+        //     return Math.random()*255
+        // }
+        function generateRandomRGB(){
+            let randomR = Math.random()*255
+            let randomG = Math.random()*255
+            let randomB = Math.random()*255
+            return `rgb(${randomR},${randomG}, ${randomB})`
+        }
+    </script>
+
+    <script>
+        // const setBg = () => {
+        // const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        // document.getElementById('start-btn').style.backgroundColor = "#" + randomColor;
+        // color.innerHTML = "#" + randomColor;
+        // }
+
+        // let genNew = document.getElementById('start-btn')
+        // genNew.addEventListener("click", function(){
+            // const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            // const randomColor1 = Math.floor(Math.random()*16777215).toString(16);
+            // setInterval(() => {
+            // document.getElementById('start-btn').style.backgroundColor = "#" + randomColor
+            // }, 1000);
+            // setInterval(() => {
+            // document.body.style.backgroundColor = "#" + randomColor1
+            // }, 1000);
+            // function getRandomColor() {
+            //     var letters = '0123456789ABCDEF';
+            //     var color = '#';
+            //     for (var i = 0; i < 6; i++) {
+            //         color += letters[Math.floor(Math.random() * 16)];
+            //     }
+            //     return color;
+            // }
+
+            
+            // var letters = '0123456789ABCDEF';
+            // var color = '#';
+            // for (var i = 0; i < 6; i++) {
+            //     color += letters[Math.floor(Math.random() * 16)];
+            //     document.body.style.backgroundColor = color;
+            // }
+            
+            // let myColors = ['red', 'green', 'blue']
+            // setInterval(() => {
+            //     document.body.style.backgroundColor = color
+            // }, 1000);
+            // for(color of myColors){
+                
+            // }
+            
+            
+            // let myColor = setInterval(() => {
+            //      getRandomColor()
+            //     }, 1000); 
+            // document.body.style.backgroundColor = myColor
+        // });        
+
+
+    </script>
+</body>
+</html>

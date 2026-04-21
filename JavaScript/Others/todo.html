@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/8a91cbe719.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="todo.css" />
+    <style></style>
+    <title>ToDo List</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="add-task">
+        <h2 class="main-heading">To-Do list <img src="img/images/icon.png" alt="todo" class="icon" /></h2>
+        <div class="user-input">
+          <input id="u-input" type="text" placeholder="Add your task" />
+          <button class="btn">Add</button>
+        </div>
+      </div>
+      <div class="new-task">
+        <div class="task">
+          <i class="fa-regular fa-circle"></i>
+          <p>Create new task</p>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="task">
+          <img class="check" src="img/images/checked.png" />
+          <i class="fa-regular fa-circle"></i>
+          <p>Read a Book</p>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="task">
+          <img class="check" src="img/images/checked.png" />
+          <i class="fa-regular fa-circle"></i>
+          <p>Finish the final project</p>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+      </div>
+    </div>
+
+    <script src="todo.js"></script>
+  </body>
+</html>

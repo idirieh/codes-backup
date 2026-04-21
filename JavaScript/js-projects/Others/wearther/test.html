@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile Card</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .profile-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 350px;
+      text-align: center;
+    }
+
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    .name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+
+    .title {
+      color: #777;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .description {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      color: #555;
+    }
+
+    .contact-btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .tik {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #ddd; /* Just for visualization */
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-card">
+    <img src="https://via.placeholder.com/100" alt="Profile Picture" class="profile-pic" />
+    <div class="name">Jane Doe</div>
+    <div class="title">Web Developer</div>
+    <div class="contact-info">
+      Email: jane.doe@example.com<br/>
+      Phone: +1 (555) 123-4567
+    </div>
+    <div class="description">
+      Passionate about creating beautiful and functional web applications. With over 5 years of experience, I specialize in front-end development using modern tools and frameworks.
+    </div>
+    <button class="contact-btn">Contact Me</button>
+  </div>
+  <div class="tik">
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+    <i class="icon">⭐</i> <!-- Example icon -->
+  </div>
+
+  
+
+</body>
+</html>

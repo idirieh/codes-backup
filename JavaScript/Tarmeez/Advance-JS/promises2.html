@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises2</title>
+</head>
+<body>
+    <div id="title1" style="visibility: hidden;">Title1</div>
+    <div id="title2" style="visibility: hidden;">Title2</div>
+    <div id="title3" style="visibility: hidden;">Title3</div>
+    <div id="title4" style="visibility: hidden;">Title4</div>
+
+
+
+    <script>
+        new Promise((resolve) => {
+            setTimeout(() => {
+                document.getElementById('title1').style.visibility = "visible"
+                resolve()
+            }, 1000)
+        }).then(() => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    document.getElementById('title2').style.visibility = "visible"
+                resolve()
+                }, 1000)
+            })
+        }).then(() => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    document.getElementById('title3').style.visibility = "visible"
+                    resolve()
+                }, 1000);
+            })
+        }).then(() => {
+            setTimeout(() => {
+                document.getElementById('title4').style.visibility = "visible"
+            }, 1000)
+        })
+
+    </script>
+</body>
+</html>

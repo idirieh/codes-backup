@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            /* margin: 20vh auto; */
+            width: min(80%, 380px)
+        }
+        .calculator {
+            background-color: #000;
+            color: #fff;
+            font-size: 2.5rem;
+            padding: 1rem;
+            border-radius: 15px;
+        }
+        .screen {
+            background-color: #333;
+            font-size: 4rem;
+            text-align: end;
+            height: 150px;
+            border-radius: 15px 15px 0 0;
+            position: relative;;
+        }
+        .screen span {
+            position: absolute;
+            right: 15px;
+            bottom: 10px;
+        }
+        .numbers{
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(4, 70px);
+            padding: 1rem .5rem;
+        }
+        .item {
+            background-color: orange;
+            text-align: center;
+            padding: .2rem .4rem;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;  
+            cursor: pointer;          
+        }
+        .item:active, .item:hover {
+            opacity: 50%;
+        }
+        .sign {
+            background-color: hsl(0, 0%, 65%);
+            color: black;
+        }
+        .num {
+            background-color: #333;
+        }
+        .zero {
+            width: 140px;
+            grid-column: span 2;
+            border-radius: 40px;
+        }
+    </style>
+
+
+    <title>Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="screen"><span class="result">0</span></div>
+            <div class="numbers">
+                <div class="item sign" id="ac">AC</div>
+                <div class="item sign">+/-</div>
+                <div class="item sign">%</div>
+                <div class="item operators" id="dv">÷</div>
+                <div class="item num">7</div>
+                <div class="item num">8</div>
+                <div class="item num">9</div>
+                <div class="item operators" id="mul">×</div>
+                <div class="item num">4</div>
+                <div class="item num">5</div>
+                <div class="item num">6</div>
+                <div class="item operators" id="sub">-</div>
+                <div class="item num">1</div>
+                <div class="item num">2</div>
+                <div class="item num">3</div>
+                <div class="item operators" id="add">+</div>
+                <div class="item num zero">0</div>
+                <div class="item num">.</div>
+                <div class="item operators" id="equal">=</div>
+            </div>
+        </div>        
+
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

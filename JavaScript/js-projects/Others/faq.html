@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+      * {
+        box-sizing: inherit;
+      }
+      body {
+        font-family: "Courier New", Courier, monospace;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        box-sizing: inherit;
+      }
+      .main {
+        width: 850px;
+        margin-top: 25vh;
+        background-color: rgb(172, 172, 172);
+        padding: 1em 2em;
+        border-radius: 10px;
+      }
+      .main h3 {
+        text-align: center;
+        font-size: 1.7rem;
+      }
+      .q {
+        font-weight: bold;
+        position: relative;
+      }
+      .q::after {
+        content: "+";
+        position: absolute;
+        right: 5px;
+        font-size: 1.1rem;
+        cursor: pointer;
+      }
+      .a {
+        height: 0;
+        overflow: hidden;
+        transition: 500ms;
+      }
+      .active {
+        display: block;
+        height: auto;
+        transition: 500ms;
+      }
+    </style>
+    <title>FAQ</title>
+  </head>
+  <body>
+    <div class="main">
+      <h3>Faq</h3>
+      <div>
+        <p class="q">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, quod.</p>
+        <p class="a">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut numquam aliquam tempora maxime explicabo magni eos expedita dicta exercitationem non, labore quam quae
+          reprehenderit minus aspernatur vitae ad beatae porro!
+        </p>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

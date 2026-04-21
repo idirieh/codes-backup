@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Custom Minimal Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+body {
+  font-family: "Roboto", serif;
+  min-height: 100vh;
+}
+
+img {
+  max-height: 100%;
+  display: block;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* customs CSS */
+
+body {
+    background-color: rgb(233, 233, 233);
+}
+
+.container {
+    /* background-color: aqua; */
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+.login-card {
+    background-color: #fff;
+    width: 350px;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.login-card .logo {
+    width: 80px;
+    height: 80px;
+    margin-inline: auto;
+}
+
+.login-card .title {
+    margin: .5em;
+}
+
+.login-card p {
+  color: #292929;
+}
+
+form {
+    margin: 1em 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    display: block;
+    width: 100%;
+    font-weight: normal;
+    padding: 5px;    
+}
+
+input[type="password"],
+input[type="text"] {
+  position: relative;
+}
+
+.show-password {
+  position: relative;
+}
+
+.show-password i{
+  color: #292929;
+  position: absolute;
+  right: 9px;
+  top: 10px;
+  cursor: pointer;
+}
+
+
+.email-field, .password {
+    text-align: start;
+    font-weight: bold;
+}
+
+.email-field label, .password label{
+  display: inline-block;
+  margin-bottom: .3rem;
+}
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+}
+
+.remember label{
+  padding-top: .2rem;
+}
+
+.forget {
+  display: inline-block;
+  color: #4a90e2;
+  padding-top: .2rem;
+  text-decoration: none;
+}
+
+.forget:hover {
+  text-decoration: underline;
+}
+
+#login-btn {
+    background-color: #222;
+    color: #fff;
+    padding: .5rem;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 200ms;
+}
+
+#login-btn:hover {
+    background-color: #4a90e2;
+}
+
+.hidden {
+  display: none;
+}
+
+.successful-login {
+  background-color: #fff;
+  padding: 2rem 3.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.user-info {
+  margin: .5rem 0;
+}

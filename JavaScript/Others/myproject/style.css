@@ -1,0 +1,34 @@
+:root {
+    --primary-color: #f4f4f4;
+    --secondary-color: #35424a;
+    --font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--primary-color);
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 1em;
+}
+
+li a {
+    color: #fff;
+    text-decoration: none;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Loop</title>
+</head>
+<body>
+    <div id="students" style="font-size: 30px;"></div>
+</body>
+<script>
+    let students = [
+    ['Yarob', 'Ahmed', 'Khaled'], 
+    ['Omar', 'Jaber', 'Sami'], 
+    ['Salem', 'Rami']
+    ]
+
+    for (let i = 0; i < students.length; i++){
+        let currentClass = students[i]
+        // console.log(currentClass)
+        document.getElementById('students').innerHTML += `<h1>Class ${i+1}</h1><hr>`
+        for (let x = 0; x < currentClass.length; x++){
+            let studentName = currentClass[x]
+            document.getElementById('students').innerHTML += `${studentName}<br>`
+        }
+    }
+
+</script>
+</html>

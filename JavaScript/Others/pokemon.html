@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: aquamarine;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .container {            
+            text-align: center;
+            height: 100vh;
+        }
+        .wrapper {
+            padding: 10vh;
+        }
+        #pokemon-name, #fetch-pokemon {
+            padding: .5rem 1rem;
+        }
+        .img-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        }
+        
+    </style>
+    <title>Pokemon</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Famous Pokémon</h1>
+        <h3>20 Most Famous Pokémon Names</h3>
+        <p> Pikachu
+            Charizard
+            Bulbasaur
+            Squirtle
+            Jigglypuff
+            Meowth
+            Gengar
+            Eevee
+            Mewtwo
+            Mew
+            Lucario
+            Snorlax
+            Blastoise
+            Venusaur
+            Lugia
+            Ho-Oh
+            Greninja
+            Zoroark
+            Incineroar
+            Rayquaza
+            </p>
+        <div class="wrapper">
+            <input type="text" placeholder="Pokemon name"   id="pokemon-name">
+            <button id="fetch-pokemon">Fetch</button>
+        </div>
+        <div class="img-container">
+
+        </div>
+    </div>
+
+
+    <script>
+
+        
+        
+        // const btn = document.getElementById('btn')
+
+        // btn.addEventListener('click', () => {
+        //     const pokemonName = document.getElementById('pokemon-name').value.toLowerCase()
+
+        //     try {
+        //         const response =  await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+
+        //         if(response.ok){
+        //             throw new Error('Not Vaild!!')
+        //         }
+        //         const data = await response.json()
+        //     }catch(error){
+        //         console.log(error)
+        //     }
+        // })
+        // getData()
+        // async function getData() {
+        //     const pokemonName = document.getElementById('pokemon-name').value.toLowerCase()
+        //     try {
+        //         const response =  await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+
+        //         if(!response.ok){
+        //             throw new Error('Not Vaild!!')
+        //         }
+        //         const data = await response.json()
+        //     }catch(error){
+        //         console.log(error)
+        //     }       
+        //     console.log(data)
+        // }
+
+        //----
+        const container = document.querySelector('.container')
+        document.addEventListener("DOMContentLoaded", () => {
+            const button = document.getElementById("fetch-pokemon");
+
+            button.addEventListener("click", async () => {
+                const inputField = document.getElementById("pokemon-name");
+                const pokemonName = inputField.value.trim().toLowerCase();
+
+                if (!pokemonName) {
+                    console.log("Please enter a Pokémon name.");
+                    return;
+                }
+
+                try {
+                    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+
+                    if (!response.ok) {
+                        throw new Error("Pokémon not found! Please check the name.");
+                    }
+
+                    const data = await response.json();
+                    console.log(data);
+                    const  img = document.createElement('img')
+                    img.src = data.sprites.front_default
+                    container.appendChild(img)
+
+                } catch (error) {
+                    console.error(error.message);
+                }
+                inputField.value = ''
+            });
+        });
+
+    </script>   
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class-Based Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .counter-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .count-display {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .increment-button {
+            padding: 12px 25px;
+            font-size: 1.2em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .increment-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter-container">
+        <div class="count-display" id="myCounterDisplay">0</div>
+        <button class="increment-button" id="myCounterButton">Increment</button>
+    </div>
+
+    <script>
+        // 1. Define the Counter class
+        class Counter {
+            constructor(initialValue = 0, displayElementId, buttonElementId) {
+                // Initialize the counter's state (its current value)
+                this.count = initialValue;
+
+                // Store references to the DOM elements it will interact with
+                this.displayElement = document.getElementById(displayElementId);
+                this.buttonElement = document.getElementById(buttonElementId);
+
+                // Ensure initial display is correct
+                this.updateDisplay();
+
+                // Attach the event listener to the button
+                // The .bind(this) is CRUCIAL here to ensure 'this' inside increment()
+                // always refers to the Counter instance, not the button element.
+                this.buttonElement.addEventListener('click', this.increment.bind(this));
+            }
+
+            // Method to increment the count
+            increment() {
+                this.count++;
+                this.updateDisplay(); // Update the visual display
+            }
+
+            // Method to update the text content of the display element
+            updateDisplay() {
+                if (this.displayElement) {
+                    this.displayElement.textContent = this.count;
+                }
+            }
+        }
+
+        // 2. Create an instance of the Counter class
+        // This makes 'myCounter' an object (an instance of Counter)
+        const myCounter = new Counter(0, 'myCounterDisplay', 'myCounterButton');
+
+        // You could create another independent counter if needed:
+        // const anotherCounter = new Counter(100, 'anotherDisplayId', 'anotherButtonId');
+    </script>
+</body>
+</html>

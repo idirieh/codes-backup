@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+<body>
+    <div id="title1" style="visibility: hidden;">Title1</div>
+    <div id="title2" style="visibility: hidden;">Title2</div>
+    <div id="title3" style="visibility: hidden;">Title3</div>
+    <div id="title4" style="visibility: hidden;">Title4</div>
+
+
+
+    <script>
+        // setTimeout(() => {
+        //     document.getElementById('title1').style.visibility = "visible";
+        //     setTimeout(() => {
+        //         document.getElementById('title2').style.visibility = "visible";
+        //         setTimeout(() => {
+        //             document.getElementById('title3').style.visibility = "visible";
+        //             setTimeout(() => {
+        //                 document.getElementById('title4').style.visibility = "visible"
+        //             }, 1000);
+        //         }, 1000);
+        //     }, 1000);
+        // }, 1000);
+
+        // let p = new Promise(function(resolve, reject) {
+        //     console.log("starting calling promise")
+        //     // async code
+        //     isSuccess = true;
+        //     if(isSuccess) {
+        //         console.log("calling resolve")
+        //         resolve()
+        //     }else {
+        //         console.log("calling reject")
+        //         reject()
+        //     }
+        // }) 
+
+        // console.log("after the promise and before then");
+
+        // p.then(function(){
+        //     console.log("calling then") //تتنفذ اخر شي
+        // }).catch(function(){
+        //     console.log("error")
+        // })
+
+        // console.log("after then and catch")
+
+        // function delay(ms) {
+        //     return new Promise(resolve => setTimeout(resolve, ms));
+        // }
+
+        // async function revealTitles() {
+        //     const titles = ['title1', 'title2', 'title3', 'title4'];
+        //     for (const title of titles) {
+        //         document.getElementById(title).style.visibility = "visible";
+        //         await delay(1000); // Wait for 1 second before revealing the next title
+        //     }
+        // }
+
+        // revealTitles();
+
+        // let p = new Promise(function(resolve, reject) {
+        //     // async code
+        //     console.log("starting calling promise")
+        //     // setTimeout(() => {
+        //     //     document.getElementById('title1').style.visibility = "visible";
+        //     //     console.log("calling resolve");
+        //     //     resolve()
+        //     // }, 2000);
+
+        //     setTimeout(() => {
+        //         document.getElementById('title1').style.visibility = "visible";
+        //         console.log("calling reject");
+        //         reject("Error to show the Element")
+        //     }, 2000);
+
+        // }) 
+
+        // console.log("after the promise and before then");
+
+        // p.then(function(){
+        //     console.log("calling then") //تتنفذ اخر شي
+        // }).catch(function(e){
+        //     console.log("error: " + e)
+        // })
+
+        // console.log("after then and catch")
+
+        // مثال على Promise chain
+
+        new Promise((resolve) =>{
+            setTimeout(() => {
+                document.getElementById('title1').style.visibility = 'visible'
+                resolve()
+            }, 1000);
+        })
+        .then(() => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    document.getElementById('title2').style.visibility = 'visible'
+                    resolve()
+                }, 1000);
+            })
+        })
+        .then(() => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    document.getElementById('title3').style.visibility = 'visible'
+                    resolve()
+                }, 1000);
+            })
+        }).then(() => {
+            setTimeout(() => {
+                document.getElementById('title4').style.visibility = 'visible'
+                resolve()
+            }, 1000);
+        })
+    </script>
+</body>
+</html>

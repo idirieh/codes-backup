@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async and Await in JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Understanding Async and Await in JavaScript</h1>
+    <p>In JavaScript, <code>async</code> and <code>await</code> are used to handle asynchronous operations more easily. They are built on top of Promises and provide a cleaner syntax for working with asynchronous code.</p>
+    
+    <h2>Async Function</h2>
+    <p>An <code>async</code> function is a function that returns a Promise. It allows you to use the <code>await</code> keyword inside it to pause the execution of the function until the Promise is resolved.</p>
+    <pre><code>async function fetchData() {
+    let response = await fetch('https://api.example.com/data');
+    let data = await response.json();
+    console.log(data);
+}</code></pre>
+    
+    <h2>Await Keyword</h2>
+    <p>The <code>await</code> keyword can only be used inside an <code>async</code> function. It makes JavaScript wait until the Promise is resolved and returns the result.</p>
+    <pre><code>async function example() {
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => resolve("Done!"), 1000);
+    });
+
+    let result = await promise; // Wait until the promise resolves
+    console.log(result); // "Done!"
+}</code></pre>
+    
+    <h2>Example</h2>
+    <p>Here is a simple example demonstrating the use of <code>async</code> and <code>await</code>:</p>
+    <pre><code>async function getUser() {
+    try {
+        let response = await fetch('https://jsonplaceholder.typicode.com/users/1');
+        let user = await response.json();
+        console.log(user);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+getUser();</code></pre>
+</body>
+
+<script>    
+    // Example using async and await
+    async function getUser() {
+        try {
+            let response = await fetch('https://jsonplaceholder.typicode.com/users/1');
+            let user = await response.json();
+            console.log(user);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+
+    async function getDate() {
+        await getUser();
+        
+        let response = await fetch('https://jsonplaceholder.typicode.com/posts');
+        let json = await response.json();
+        console.log(json);
+    }
+    // getUser();
+</script>
+</html>

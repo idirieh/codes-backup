@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="title">Hello World</h2>
+    <Input id="txt" type="text" autofocus></Input>
+    <button id="btn">Submit</button>
+    <h2 id="result"></h2>
+</body>
+<script>
+    // Get the input field
+    var input = document.getElementById("txt");
+
+    // Execute a function when the user presses a key on the keyboard
+    input.addEventListener("keypress", function(event) {
+    // If the user presses the "Enter" key on the keyboard
+    if (event.key === "Enter") {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("btn").click();
+    }
+    });
+    var text = document.getElementById('btn').addEventListener("click", function(){
+        var userI = document.getElementById('txt').value
+        var upperGreet = userI.toUpperCase()
+        var replaceGreet = upperGreet.replace('O','Y')
+        var reverseGreet = replaceGreet.split("").reverse().join("");
+        document.getElementById('result').innerHTML = `${userI}----${upperGreet}----${replaceGreet}----${reverseGreet}`
+    });
+
+    
+    // document.getElementById('myStr').innerText = greet
+    // document.getElementById('allCaps').innerText = upperGreet
+    // document.getElementById('replaceStr').innerText = replaceGreet
+    // document.getElementById('reverseStr').innerText = reverseGreet
+
+    
+</script>
+</html>

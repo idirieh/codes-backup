@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #333;
+            min-height: 100vh;
+            font-family: system-ui, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .container {
+            width: 700px;
+            height: 700px;
+            margin: 20vh auto;
+            display: flex;
+            gap: 1em;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            border: solid 2px black;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            padding: 1rem 0;
+        }
+         @property --angle {
+            syntax: "<angle>";
+            inherits: false;
+            initial-value: 0deg;
+        }
+        .box::before, .box::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(from var(--angle), transparent 70%, rgb(255, 255, 255));
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            z-index: -1;
+            padding: 3px;
+            border-radius: 10px;
+            animation: spin 3s linear infinite;
+        }
+        @keyframes spin {
+            from {
+                --angle: 0deg;
+            }
+            to {
+                --angle: 360deg;
+            }
+        }
+        .red {
+            background-color: #f95959;
+        }
+        .green {
+            background-color: aquamarine;
+        }
+        .blue {
+            background-color: #0092ca;
+        }
+    </style>
+    <title>Colors</title>
+</head>
+<body>
+    <div class="container">
+        <div class="box red">Red 
+            <p>Click</p>
+        </div>
+        <div class="box green">Green 
+            <p>Click</p>
+        </div>
+        <div class="box blue">Blue 
+            <p>Click</p>
+        </div>
+    </div>
+
+    <script>
+        const red = document.querySelector('.red');
+        const green = document.querySelector('.green');
+        const blue = document.querySelector('.blue');
+
+        red.addEventListener('click', function() {
+            alert('The Color is Red')
+        })
+        red.addEventListener('mouseover', ()=> {
+            document.body.style.backgroundColor = '#f95959'
+        }) 
+        green.addEventListener('mouseover', ()=> {
+            document.body.style.backgroundColor = 'aquamarine'
+        }) 
+        blue.addEventListener('mouseover', ()=> {
+            document.body.style.backgroundColor = '#0092ca'
+        })
+        blue.addEventListener('click', ()=> {
+            alert('The Color is Blue')
+        })
+    </script>
+</body>
+</html>

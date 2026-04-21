@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery</title>
+    <style>
+        body {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1 id="title">Hello World</h1>
+
+
+    <script>
+        document.getElementById("title").innerHTML = "What you mean?"
+
+        $("#title").html("No you are not!") //same as the above but with jquery 
+
+        document.getElementById("title").addEventListener('click', function(){
+            this.innerHTML = "Hi, Where are you from?"
+        })
+
+        $("#title").click(function(){
+            $(this).html("I'm from Jquery!@!@") //same as the above but with jquery 
+        })
+
+        $("#title").on('dblclick', function(){
+            $(this).html("Final ")
+        })
+
+    </script>
+</body>
+</html>

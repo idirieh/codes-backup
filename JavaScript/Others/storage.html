@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save in The Local Storage</title>
+    <style>
+        body {
+            height: 100vh;
+
+        }
+        .container {
+            margin: 10vh auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .colors {
+            background-color: rgba(133, 131, 131, 0.5);
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            padding: 1em;
+            border-radius: 20px;
+        }
+        .sm-box {
+            height: 50px;
+            width: 50px;
+            cursor: pointer;
+        }
+        #result {
+            background-color: brown;            
+            height: 250px;
+            width: 450px;
+            margin-top: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="colors">
+            <div class="sm-box" id="red" style="background-color: red;"></div>
+            <div class="sm-box" id="black" style="background-color: black;"></div>
+            <div class="sm-box" id="green" style="background-color: green;"></div>
+            <div class="sm-box" id="blue" style="background-color: blue;"></div>
+            <div class="sm-box" id="yellow" style="background-color: yellow;"></div>
+        </div>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const smBox = document.querySelectorAll('.sm-box');
+        const bigBox = document.getElementById('result');
+
+        document.getElementById('red');
+
+        bigBox.style.backgroundColor = localStorage.getItem('theColor');
+
+        for (i = 0; i < smBox.length; i++) {
+            let currentBox = smBox[i]
+            // console.log(smBox[i])
+            smBox[i].addEventListener('click', function(){
+                let newColor = currentBox.getAttribute('id');
+                window.localStorage.setItem('theColor', newColor)
+                bigBox.style.backgroundColor = localStorage.getItem('theColor');
+            })
+        
+        }
+    </script>
+</body>
+</html>

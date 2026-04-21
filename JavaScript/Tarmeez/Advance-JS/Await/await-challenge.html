@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        div {
+            margin: 10px;
+            font-size: 24px;
+        }
+        .item {
+            background-color: lightblue;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <title>Async and Await Challenge</title>
+</head>
+<body>
+    <div class="container">
+        <div class="item" id="title1" style="visibility: hidden;">Title1</div>
+        <div class="item" id="title2" style="visibility: hidden;">Title2</div>
+        <div class="item" id="title3" style="visibility: hidden;">Title3</div>
+        <div class="item" id="title4" style="visibility: hidden;">Title4</div>
+    </div>
+
+
+
+    <script>  
+
+        // حل ترميز
+
+        async function showTitles() {
+                await new Promise((resolve) =>{
+                    setTimeout(() => {
+                        document.getElementById('title1').style.visibility = 'visible'
+                        resolve()
+                    }, 1000);
+                })
+                await new Promise((resolve) => {
+                    setTimeout(() => {
+                        document.getElementById('title2').style.visibility = 'visible'
+                        resolve()
+                }, 1000);
+                })
+                await new Promise((resolve) => {
+                    setTimeout(() => {
+                        document.getElementById('title3').style.visibility = 'visible'
+                        resolve()
+                }, 1000);
+                })
+                setTimeout(() => {
+                    document.getElementById('title4').style.visibility = 'visible'
+                    // resolve()
+                }, 1000);
+                 
+
+            
+        }
+
+        showTitles()
+
+
+        // function delay(ms) {
+        //     return new Promise(resolve => setTimeout(resolve, ms));
+        // }
+
+        // async function revealTitle(titleId, delayTime) {
+        //     await delay(delayTime);
+        //     document.getElementById(titleId).style.visibility = 'visible';
+        // }
+
+        // revealTitle('title1', 1000);
+        // revealTitle('title2', 1000); // Adjusted delay for sequential reveal
+
+        // async function revealTitle() {
+        //     await delay(1000)
+        //     document.getElementById('title1').style.visibility = 'visible'
+        //     await delay(1000)
+        //     document.getElementById('title2').style.visibility = 'visible'
+        //     await delay(1000)
+        //     document.getElementById('title3').style.visibility = 'visible'
+        //     await delay(1000)
+        //     document.getElementById('title4').style.visibility = 'visible'
+        // }
+
+        // async function revealTitle() {
+        //     for(i = 1; i < 5; i++){
+        //         await delay(1000)
+        //         document.getElementById('title'+i).style.visibility = 'visible'
+        //     }
+        // }
+
+        // revealTitle()
+
+
+        // حل جوجل جيميناي
+        // async function showTitles() {
+        //     await delay(1000); 
+        //     document.getElementById('title1').style.visibility = 'visible';
+
+        //     await delay(1000); 
+        //     document.getElementById('title2').style.visibility = 'visible';
+
+        //     await delay(1000); 
+        //     document.getElementById('title3').style.visibility = 'visible';
+
+        //     await delay(1000); 
+        //     document.getElementById('title4').style.visibility = 'visible';
+        // }
+
+        // function delay(ms) {
+        //     return new Promise(resolve => setTimeout(resolve, ms));
+        // }
+
+        // showTitles();
+
+        fetch('https://reqres.in/api/register', {
+        method: 'POST',
+        body: JSON.stringify({
+            "email": "eve.holt@reqres.in",
+            "password": "pistol"
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+        })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+    </script>
+</body>
+</html>

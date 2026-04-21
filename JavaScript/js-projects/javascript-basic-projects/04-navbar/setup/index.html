@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+
+    <!-- styles -->
+     <link rel="stylesheet" href="styles.css" />
+     <style>
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.5rem;
+        position: relative;
+      }
+      .nav-item a {
+        color: #324d67;
+        font-size: 1.1rem;
+      }
+      .nav-item a:hover {
+        color: #49a6e9;
+      }
+      .nav-list, .social-list {
+        display: flex;
+        gap: 1em;
+        
+      }
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+      .navbar .logo span,  .social-list I{
+        color: #49a6e9;
+      }
+      .navbar .logo span,  .social-list I:hover {
+        color: #324d67;
+      }
+      .burger {
+        position: absolute;
+        right: 25px;
+        top: 25px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+      .burger .line{
+        background-color: #49a6e9;
+        height: 5px;
+        width: 25px;
+        margin: .3rem 0;
+        display: none;
+        transition: background-color 0.3s ease;
+      }
+
+      
+      @media (max-width: 600px) {
+        .navbar, .nav-list {
+          display: block;
+          transition: 300ms; 
+        }
+        .nav-list {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease-out;
+        }
+        .nav-item {
+          margin: .3rem 0 ;
+          transition: 0.3s ease-out;
+          cursor: pointer;
+        }
+        .nav-item:hover {
+          color: #4db4fd;
+          background-color: #49a6e9;
+          padding: 1em;
+        }
+        .social-list {
+          display: none;
+        }
+        .burger .line{
+          display: block;
+        }
+
+      }
+      .show {
+        max-height: 500px; /* Adjust this value based on your content */
+        transition: max-height 0.5s ease-in;
+      }
+      </style>
+    
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <h4 class="logo">Coding <span>Addict</span></h4>
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#">Home</a></li>
+          <li class="nav-item"><a href="">About</a></li>
+          <li class="nav-item"><a href="">Projects</a></li>
+          <li class="nav-item"><a href="">Contact</a></li>        
+        </ul>
+        <ul class="social-list">
+          <li>
+            <a href="https://www.twitter.com">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com">
+              <i class="fab fa-behance"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com">
+              <i class="fab fa-sketch"></i>
+            </a>
+          </li>
+
+        </ul>
+        <div class="burger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </nav>
+    </header>
+    <!-- javascript -->
+    <script src="app.js"></script>
+  </body>
+</html>
+
+<script>
+  const burger = document.querySelector('.burger');
+  const navList = document.querySelector('.nav-list');
+  const burgerLines = document.querySelectorAll('.line')
+
+  burger.addEventListener('click', () => {
+    // navList.classList.toggle('hidden');
+    navList.classList.toggle('show');
+  });
+
+  burger.addEventListener('mouseover', () => {
+    burger.style.transform = 'rotate(90deg)';
+    burgerLines.forEach(line => {
+      line.style.backgroundColor = '#727272'
+    })
+  })
+  burger.addEventListener('mouseleave', () => {
+    burger.style.transform = 'rotate(0deg)';
+    burgerLines.forEach(line => {
+      line.style.backgroundColor = '#49a6e9'
+    })
+  })
+</script>

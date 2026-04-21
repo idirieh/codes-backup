@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+    
+    <title>Test Request</title>
+</head>
+<body>
+    <div class="card"></div>
+    <h1 style="text-align: center;">Test Request</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title" id="title">Card title</h5>
+                      <p class="card-text" id="text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        const title = document.getElementById('title');
+        const text = document.getElementById('text');
+        const row = document.querySelector(".row");
+
+        let request = new XMLHttpRequest();
+        request.open("GET", "https://jsonplaceholder.typicode.com/postss");
+        request.send();
+        request.responseType = "json";
+        request.onload = () => {
+            // console.log("This is myTitle "+request.response[1]["title"]);
+            if (request.status >= 200 && request.status < 300) {
+                for(i = 0; i < 8; i++) {
+                let requestTitle = request.response[i]["title"];
+                let requestText = request.response[i]["body"];
+                let newDiv = document.createElement('div');
+                newDiv.innerHTML = `
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title" id="title">${requestTitle}</h5>
+                        <p class="card-text" id="text">${requestText}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                `;
+                newDiv.classList.add('col');
+                row.appendChild(newDiv)
+            }
+            // let newDiv = document.createElement('div');
+            // let newText = document.createTextNode("Heeeeeeey!!");
+
+            }else {
+                alert(`Error ${request.status}`)
+            }
+
+            
+            // newDiv.appendChild(newText);
+            // row.appendChild(newDiv)
+
+
+            // for(i = 0; i < 2; i++) {
+            //     let requestTitle = request.response[i]["title"];
+            //     let requestText = request.response[i]["body"];
+            //     title.innerText = requestTitle;
+            //     text.innerText = requestText;
+            // }
+            // let heading = document.getElementsByTagName('h1')[0].innerHTML = title;
+            // console.log(request.responseText)
+            // let newHeading = document.createElement('h1');
+            // let text = document.createTextNode(title);
+            // newHeading.appendChild(text)
+            // document.body.appendChild(newHeading)
+        }
+
+        // هذا من موقع jsonplaceholder
+        // fetch('https://jsonplaceholder.typicode.com/posts', {
+        // method: 'POST',
+        // body: JSON.stringify({
+        //     title: 'foo',
+        //     body: 'bar',
+        //     userId: 1,
+        // }),
+        // headers: {
+        //     'Content-type': 'application/json; charset=UTF-8',
+        // },
+        // })
+        // .then((response) => response.json())
+        // .then((json) => console.log(json));
+    </script>
+</body>
+</html>

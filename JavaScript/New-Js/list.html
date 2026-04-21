@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            background-color: teal;
+            width: min(80%, 60rem);
+            padding: 1em;
+            margin: 20vh auto;
+            text-align: center;
+            border-radius: 5px;
+        }   
+        button {
+            background-color: #00CCCC;
+            font-size: 1.2rem;
+            outline: none;
+            border: none;
+            padding: .5em 1em;
+            margin: 0 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input {
+            font-size: 1.2rem;
+            width: 60%;
+            padding: .5em;
+            border-radius: 5px;
+        }
+        p {
+            font-size: 1.5rem;
+            color: #fff;
+            margin: 10px;
+            padding: 0;
+        }
+        .container1 {
+            background-color: teal;
+            width: min(80%, 60rem);
+            height: 4rem;
+            margin: 20vh auto;
+            text-align: center;
+            border-radius: 5px;
+        }   
+    </style>
+    <title>list</title>
+</head>
+<body>
+    <div class="container">
+            <input type="text" placeholder="Your task" id="userInput">
+            <button id="sub-btn">Submit</button>
+            <button id="del-btn">Delete</button>
+    </div>
+    <div class="container1">
+        <p class="output-box"></p>
+    </div>
+</body>
+</html>
+
+<script>
+
+    const submitBtn = document.getElementById('sub-btn');
+    const delButton = document.getElementById('del-btn');
+    const outputBox = document.querySelector('.output-box')
+    const inpt = document.getElementById('userInput');
+
+    console.log(inpt)
+    
+    let myArr = [];
+
+    submitBtn.addEventListener('click', function() {
+        let userInput = inpt.value;
+        myArr.push(userInput)
+        outputBox.innerHTML = myArr;
+        inpt.value =""
+    })
+
+    delButton.addEventListener('click', function() {
+        let userInput = inpt.value;
+        myArr.pop(userInput)
+        outputBox.innerHTML = myArr;
+        inpt.value =""
+    })
+
+    
+
+
+
+
+</script>

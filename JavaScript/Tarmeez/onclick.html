@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Click</title>
+    <style>
+        body, div, h1 {
+            padding: 0;
+            margin: 0;
+        }
+        div {
+            display: grid;
+            place-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 100%; height: 100vh; background-color:antiquewhite">
+        <h1 id="title" onclick="this.innerHTML = 'Welcome to HTML'">Welcome to JavaScript</h1>
+        <h1 id="titlle1" onclick="changeText()">Welcome to JavaScript</h1>
+        <h2 id="text">Test</h2>
+        <h1 id="mouse">Waiting for mouseover</h1>
+    </div>
+
+    <script>
+        // chage the text for selected element by ID from HTML
+        function changeText(){
+            document.getElementById('text').innerHTML = "Welcome to Python"
+        }
+
+        // change the text for the same element from JS
+        let mouse = document.getElementById("mouse")
+        mouse.addEventListener('mouseover', function(){
+            this.innerHTML = "Test my function"
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+html, *::before, *::after {
+    box-sizing: border-box;
+}
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #1C0045;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container {
+    background-color: #fff;
+    width: 650px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.header {
+    background-color: #552D94;
+    color: #fff;
+    font-size: 1.8rem;
+    width: 100%;
+    text-align: center;    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title {
+    margin: .5em auto;
+}
+.plus {
+    background-color: #fff;
+    color: #1C0045;
+    font-size: 1.2rem;
+    height: 25px;
+    width: 25px;
+    margin-right: .5rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#tasks {
+    padding: .5em;
+}
+.task {
+    background-color: #fff;
+    padding: .5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    transition: 300ms;
+}
+.done {
+    background-color: rgb(153, 253, 168);
+}
+.task:hover {
+    box-shadow: 0 3px 3px rgba(22, 22, 22, .5);
+}
+.task div {
+    align-self: center;
+}
+#task-name {
+    font-size: 1.5rem;
+    margin: .5rem 0;
+}
+.date {
+    font-size: 1rem;
+    height: 5px;
+    width: 5px;
+}
+.icon i {    
+    margin: 0 1rem;
+    color: #fff;    
+    border-radius: 50%;
+    cursor: pointer;
+}
+.fa-check {
+    background-color: #008510;
+    padding: .5rem;
+}
+.fa-pen-to-square {
+    background-color: #5C54C6;
+    padding: .5rem;
+}
+.fa-trash {
+    background-color: #65000D;
+    padding: .5rem;
+}
+.fa-xmark {
+    background-color: rgb(255, 145, 0);
+    padding: .57rem .77rem;
+}
+/* div#task {
+    background-color: #394277;
+}
+
+div #task {
+    background-color: #008510;
+} */

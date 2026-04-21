@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --clr-primary: rgb(140, 84, 255);
+    --clr-white: #fff;
+}
+
+/* CSS Resets */
+
+*, *::before, *::after {
+    box-sizing: border-box;    
+}
+
+* {
+    margin: 0;
+}
+
+image, svg {
+    display: block;
+    width: 100%;
+} 
+
+body {
+    font-family: "Roboto", sans-serif;
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.title {
+    color: var(--clr-white);
+    text-align: center;
+    margin: 1em;
+}
+
+.title span {
+    color: var(--clr-primary);
+}
+
+.container {    
+    display: flex;
+    gap: 2em;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.users-post, .post {
+    padding: 1em;
+    border-radius: 10px;    
+}
+
+.users-info {
+    text-align: center;   
+}
+
+.users-info p {
+    margin: .5rem 0;
+}
+
+.users-info .user-info {
+    background-color: var(--clr-white);
+    min-width: 250px;
+    margin-bottom: 1rem;
+    padding: 1em;
+    border-radius: 10px; 
+}
+
+.users-info #btn {
+    font-family: inherit;
+    font-size: .9rem;
+    font-weight: 500;
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
+    width: 100;
+    border: none;
+    outline: none;
+    padding: .5em 1.5em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.users-info #btn:hover {
+    background-color: transparent;
+    color: inherit;
+    outline: 1px solid var(--clr-primary);
+}
+
+.users-info #btn:hover ~ .user-info{
+    background-color: aqua;
+}
+
+.users-post {
+    background-color: lightgray;
+    flex-grow: 1;    
+}
+
+.post {
+    background-color: var(--clr-white);
+    padding: 1em;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+hr {
+    margin: .8rem 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.active {
+    outline: 5px solid orange;
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Element</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        #main {
+            background-color: darkblue; 
+            color: #fff; 
+            font-size: 40px;
+            width: 100%;
+            height: 50vh;             
+        }
+        .mid {
+            display: grid;
+            place-content: center;
+            height: 50%;
+        }
+        .content {
+            height: 40px;
+        }
+        #user {
+            height: 100%;
+            width: 300px;
+            border: none;
+        }
+        #btn {
+            border: none;
+            background-color: #fff;
+            height: 100%;
+            width: 100px;
+        }
+        #main2 {
+            color: black;
+            display: grid;
+            place-content: center;
+            font-size: 40px;
+            width: 100%;
+            height: 50vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="mid">
+            <div class="content">
+                <input type="text" id="user" onchange="nameInputChange(this)">
+                <button id="btn">إرسال</button>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <h3 id="currentName">Trameez</h3>
+        </div>
+    </div>
+    <div id="main2">
+        <h2 id="message">الرجاء إدخال الاسم</h2>
+    </div>
+
+    <script>
+
+        let messageElement = document.getElementById("message")
+        let isSubmitted = false
+
+        function nameInputChange(input){
+            document.getElementById("currentName").innerHTML = input.value
+        }
+
+        document.getElementById("btn").addEventListener('click', function(){
+            if(!isSubmitted){
+                isSubmitted = true
+                let child = messageElement.firstChild
+                messageElement.removeChild(child)
+            }
+            
+            let value = document.getElementById("user").value
+            let textNode = document.createTextNode(value)
+            messageElement.appendChild(textNode)
+            let brElement = document.createElement("br")
+
+            messageElement.appendChild(brElement)
+        })
+
+        messageElement.addEventListener('mouseover', function(){
+            if(isSubmitted){
+                this.style.backgroundColor = "green"
+            }else {
+                this.style.backgroundColor = "red"
+            }
+            
+        })
+        messageElement.addEventListener('mouseout', function(){
+            this.style.backgroundColor = "white"
+        })
+        
+    </script>
+</body>
+</html>
+
+
+
+<script>
+    // let newElement = document.createElement("li")
+    // let content = document.createTextNode = "Ismail"
+    // let user = document.getElementById("user")
+    // let btn = document.getElementById("btn")
+
+    // user.addEventListener('mouseout', function(){
+    //     let newName = document.createElement('h2')
+    //     let content = document.createTextNode = user.value
+    //     newName.appendChild(content)
+    //     document.getElementById('main').appendChild(newName)
+    // })
+
+    // document.getElementById("result").innerHTML = 'الرجاء إدخال الإسم'
+    // btn.addEventListener('click', function(){          
+    //     document.getElementById("result").innerHTML = user.value
+    //     document.getElementById("result").innerHTML += user.value
+    // })
+
+    // let title = document.getElementById("result")
+    // title.addEventListener('mouseover', function(){
+    //     this.style.backgroundColor = 'green'
+    // })
+    
+</script>

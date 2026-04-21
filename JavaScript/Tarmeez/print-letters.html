@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Printer</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>Vowel Letter: (A, E, I, O, U)</h1>
+        <input type="text" name="" id="userTxt" autofocus>
+        <button id="btn">Submit</button>
+        <h2 id="result"></h2>
+    </div>
+</body>
+<script>
+    let btn = document.getElementById('btn')
+    btn.addEventListener('click', function() {
+        document.getElementById("result").innerHTML = ``  
+        let word = document.getElementById('userTxt').value
+        for (char of word){
+            const vowels = ['a', 'e', 'i', 'o', 'u']            
+            // if (vowels.includes(word[i].toLowerCase())) {continue} الحل حقي
+            let lowerTxt = char.toLowerCase()
+            if (!vowels.includes(lowerTxt)) {
+                document.getElementById("result").innerHTML += `${char}<br>`
+            }                        
+        }
+        document.getElementById('userTxt').value = ''
+    })
+</script>
+</html>

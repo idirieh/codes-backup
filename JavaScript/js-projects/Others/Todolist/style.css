@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --clr-primary: #f6eefc;
+    --clr-secondary: #6751a4;
+}
+
+/* Custom Minimal Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+body {
+  font-family: sans-serif;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* customs CSS */
+
+body {
+    background-color: var(--clr-primary);
+    font-family: "Inter", sans-serif;
+    color: var(--clr-secondary)
+}
+
+.container {
+    width: 90%;
+    max-width: 650px;
+    margin: 10vh auto;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.container .wrapper h1 {
+    font-size: 3rem;
+}
+
+.container .wrapper p {
+    font-size: 1.2rem;
+}
+
+.new-task-container {
+    background-color: #fff;
+    padding: 1.5em;
+    margin: 1.8rem 0;
+    border-radius: 10px;
+    border: 1px solid rgba(103, 81, 164, 30%);
+    box-shadow: 0px 4px 15px 1px rgba(103, 81, 164, 20%);
+}
+
+.new-task-container h3 {
+    color: #222;
+    margin-bottom: 1.2rem;
+}
+
+.input-wrapper {
+    display: flex;    
+}
+
+.new-task-container input {
+    flex-grow: 1;
+    background-color: var(--clr-primary);
+    outline: none;
+    border: none;
+    margin-right: .3rem;
+    padding: .5em 1em;
+    border-radius: 5px;
+}
+
+.new-task-container input:focus {
+    outline: 2px solid var(--clr-secondary);
+}
+
+.new-task-container #add-task-btn {
+    background-color: var(--clr-secondary);
+    color: #fff;
+    padding: .5em 1em;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tasks-container {
+    background-color: #fff;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1.5em;
+    margin: 1em 0;
+    border-radius: 10px;
+}
+
+.tasks-container input {
+    font-size: 3rem;
+}
+
+.task {
+    color: #222;
+    flex-basis: 90%;
+    margin-left: 4px;
+}
+
+.date-text {
+    font-size: 12px;
+}
+
+.tasks-container button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.fa-trash {
+    color: rgb(255, 0, 64)
+}
+
+.fa-trash:hover {
+    color: rgb(158, 7, 7)
+}

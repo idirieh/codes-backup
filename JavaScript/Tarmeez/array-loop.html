@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Loop</title>
+</head>
+<body>
+    <div id="div"style="text-align: center;">
+        <h1>Find Student</h1>
+        <input type="text" id="student" autofocus>
+        <button id="search-btn">Search</button>
+        <h3 id="students"></h3>
+        <h2 id="result" style="font-size: 4.5rem;"></h2>
+    </div>
+</body>
+<script>
+    let students = ['Yarob', 'Ahmed', 'Khaled', 'Omar', 'Jaber', 'Sami', 'Salem']
+    for(std of students) {
+        document.getElementById('students').innerHTML += `${std} --`
+    }
+    let btn = document.getElementById('search-btn')
+    let div = document.getElementById('div')
+    div.addEventListener('keypress', function(event){
+        if (event.key === 'Enter'){
+            document.getElementById('search-btn').click()
+        }
+    })
+    btn.addEventListener('click', function(){
+        let studentName = document.getElementById('student').value.toLowerCase()
+        for (std of students) {
+            let lowerStd = std.toLowerCase()
+            if (lowerStd == studentName){
+                document.getElementById('result').innerHTML = `${studentName} is in the school`
+                break
+            }
+            document.getElementById('result').innerHTML = `${studentName} is NOT in the school`
+            // document.getElementById('result').innerHTML += std +'--' + studentName + '<br>'
+        }
+
+
+        // let isFound = false
+        // for (std of students) {
+        //     let lowerStd = std.toLowerCase()
+        //     if (lowerStd == studentName){
+        //         isFound = true
+        //     }
+        //     // document.getElementById('result').innerHTML += std +'--' + studentName + '<br>'
+        // }
+        // // console.log(studentName)
+        // let result = document.getElementById('result')
+        // if(isFound == true){
+        //         result.innerHTML = `${studentName} is in the school`
+        //     }else {
+        //         result.innerHTML = `${studentName} is NOT in the school`
+        //     }
+        document.getElementById('student').value = ''
+    })
+</script>
+</html>

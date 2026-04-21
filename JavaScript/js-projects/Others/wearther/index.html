@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
+     <script src="https://kit.fontawesome.com/8a91cbe719.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="container">
+        <div class="search">
+            <input type="text" name="search" id="search" placeholder="Eneter the city name" autofocus>
+            <button id="search-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+        <div class="weather-icon">
+            <!-- <img src="./Assets/sun.png" alt=""> -->
+            <img id="icon" src="./Assets/images/clear.png" alt="">
+        </div>
+        <div class="temp"><span id="temperature">37</span>°C</div>
+        <div class="city">Riyadh</div>
+        <div class="weather-info">
+            <div class="humidity">
+                <i class="fa-solid fa-water fa-lg"></i>
+                <div class="humit-info">
+                    <p class="humidity-num"><span id="humidity">48</span>%</p>
+                    <p class="humidity-text">Humidity</p>
+                </div>
+            </div>
+            <div class="wind">
+                <!-- <img src="./Assets/wind.png" alt=""> -->
+                 <i class="fa-solid fa-wind fa-lg"></i>
+                <div class="wind-info">                    
+                    <p class="wind-num"><span id="wind">10.29</span> km/h</p>
+                    <p class="wind-text">Wind Speed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="app.js"></script> -->
+    <script src="main.js"></script>
+</body>
+</html>

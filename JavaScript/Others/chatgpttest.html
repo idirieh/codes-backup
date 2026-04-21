@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/8a91cbe719.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="todo.css" />
+    <style>
+      ul li {
+        list-style: none;
+        font-size: 1.25rem;
+        padding: 12px 8px 12px 50px;
+        user-select: none;
+        cursor: pointer;
+        position: relative;
+      }
+      ul li::before {
+        content: '';
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background-image: url(img/images/unchecked.png); 
+        background-size: cover;
+        background-position: center;
+        top: 12px;
+        left: 8px;
+      }
+      ul li.checked {
+        color: #555;
+        text-decoration: line-through;        
+      }
+      ul li.checked::before {
+        background-image: url(img/images/checked.png);        
+      }
+      ul li span {
+        position: absolute;
+        right: 0;
+        top: 5px;
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+        color: #555;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 50%;
+      }
+      ul li span:hover {
+        background-color: #edeef0;
+      }
+    </style>
+    <title>ToDo List</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="add-task">
+        <h2 class="main-heading">To-Do list <img src="img/images/icon.png" alt="todo" class="icon" /></h2>
+        <div class="user-input">
+          <input id="u-input" type="text" placeholder="Add your task" />
+          <button onclick="addTask()" class="btn">Add</button>
+        </div>
+      </div>
+        <ul id="task-container">
+          <!-- <li class="checked">Task 1</li>
+          <li>Task 2</li>
+          <li>Task 3</li> -->
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      const inputBox = document.getElementById("u-input");
+      const listContainer = document.getElementById("task-container");
+      
+
+      function addTask() {
+        if (inputBox.value === "") {
+          alert("you have to enter task name!");
+        } else {
+          const li = document.createElement('li');
+          li.innerHTML = inputBox.value;
+          listContainer.appendChild(li)
+          let span = document.createElement("span");
+          span.innerHTML = "\u00d7"
+          li.appendChild(span)
+        }
+        inputBox.value = "";
+        saveDate()
+      }
+
+      listContainer.addEventListener("click", (e) => {
+        if(e.target.tagName === "LI") {
+          e.target.classList.toggle("checked")
+          saveDate()
+        } else if (e.target.tagName === "SPAN") {
+          e.target.parentElement.remove()
+          saveDate()
+        }
+      }, false);
+
+      function saveDate() {
+        localStorage.setItem('data', listContainer.innerHTML);
+      }
+
+      function getDate() {
+        listContainer.innerHTML = localStorage.getItem('data')
+      }
+
+      getDate()
+    </script>
+  </body>
+</html>

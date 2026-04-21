@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculate your BMI</title>
+    <style>
+      body {
+        background-image: url(scale.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        color: #fff;
+      }
+      label {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 0.75rem 0 0.5rem;
+      }
+      input {
+        padding: 0.25rem 0;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+      #wrapper {
+        background-color: rgba(22, 22, 22, 50%);
+        text-align: center;
+        padding: 1.5em;
+        margin: 25vh;
+        border-radius: 5px;
+      }
+      #btn {
+        display: block;
+        background-color: #070d13;
+        color: #fff;
+        font-size: 1.15rem;
+        font-weight: bold;
+        padding: 0.75rem 5rem;
+        margin: 1rem auto;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #btn:hover {
+        opacity: 80%;
+      }
+      .final {
+        background-color: #222;
+        color: #fff;
+      }
+      #final-text {
+        margin: 1em 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1 class="main-title">حاسبة مؤشر كتلة الجسم BMI</h1>
+      <label for="height">الطول</label>
+      <input type="text" class="inpt" id="height" dir="ltr" autofocus />
+      <label for="weight">الوزن</label>
+      <input type="text" class="inpt" id="weight" dir="ltr" />
+      <button id="btn">احسب</button>
+      <div class="final">
+        <h3 id="final-number"></h3>
+        <h3 id="final-height"></h3>
+        <h3 id="final-weight"></h3>
+        <h2 id="final-result"></h2>
+      </div>
+    </div>
+
+    <script>
+      let btn = document.getElementById("btn");
+      let myHeight = document.getElementById("hight");
+      let myWeight = document.getElementById("weight");
+      btn.addEventListener("click", () => {
+        let num = 0;
+        console.log(num);
+      });
+      // const c = console.log.bind(document);
+
+      // c(123);
+      // c("Hello world!");
+    </script>
+  </body>
+</html>

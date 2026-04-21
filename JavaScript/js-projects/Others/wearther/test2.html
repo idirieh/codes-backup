@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8a91cbe719.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Skeleton Styles */
+.skeleton {
+    background-color: #e0e0e0; /* Light gray background */
+    border-radius: 4px;       /* Slightly rounded corners */
+    margin: 10px 0;           /* Spacing similar to your content */
+    animation: pulse 1.5s infinite ease-in-out; /* Shimmer/pulse animation */
+}
+
+@keyframes pulse {
+    0% {
+        background-color: #e0e0e0;
+    }
+    50% {
+        background-color: #d0d0d0; /* Slightly darker gray for pulse */
+    }
+    100% {
+        background-color: #e0e0e0;
+    }
+}
+
+/* Specific Skeleton Element Styles */
+/* Match these to the dimensions and layout of your actual content */
+
+.weather-icon-skeleton {
+    width: 120px; /* Example: Adjust to your image size */
+    height: 120px;
+    border-radius: 50%; /* If your icon is circular */
+    margin: 20px auto; /* Center it */
+}
+
+.temp-skeleton {
+    width: 150px;  /* Example width */
+    height: 40px;  /* Example height for temperature text */
+    margin: 10px auto;
+}
+
+.city-skeleton {
+    width: 200px;  /* Example width */
+    height: 30px;  /* Example height for city text */
+    margin: 10px auto;
+}
+
+.humidity-num-skeleton,
+.wind-num-skeleton {
+    width: 80px;   /* Example width */
+    height: 20px;  /* Example height */
+    margin-bottom: 5px;
+}
+
+.humidity-text-skeleton,
+.wind-text-skeleton {
+    width: 100px;  /* Example width */
+    height: 15px;  /* Example height */
+}
+
+/* Hide skeleton loaders when data is loaded */
+.container:not(.loading) .skeleton {
+    display: none !important; /* Important to override initial display */
+}
+
+/* Show actual content when data is loaded */
+.container:not(.loading) .weather-icon,
+.container:not(.loading) #temperature,
+.container:not(.loading) .city,
+.container:not(.loading) .humidity-num,
+.container:not(.loading) .humidity-text,
+.container:not(.loading) .wind-num,
+.container:not(.loading) .wind-text {
+    display: block !important; /* Or inline, flex, etc., as appropriate for your layout */
+}
+
+/* Ensure elements within flex containers are handled correctly when switching */
+.container:not(.loading) .humit-info,
+.container:not(.loading) .wind-info {
+    display: flex; /* Or block, depending on your original styling */
+    flex-direction: column; /* Or as needed */
+}
+
+/* You might need to adjust the display property for the actual content based on your original CSS.
+   For instance, if .weather-info, .humidity, .wind are flex containers,
+   you'll need to ensure their children are displayed appropriately. */
+
+/* Hide actual content initially if using the JavaScript class toggle method */
+.container.loading .weather-icon,
+.container.loading #temperature,
+.container.loading .city,
+.container.loading .humidity-num,
+.container.loading .humidity-text,
+.container.loading .wind-num,
+.container.loading .wind-text {
+    display: none;
+}
+    </style>
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="container loading"> {/* Initially add 'loading' class */}
+        <div class="search">
+            <input type="search" name="search" id="search" placeholder="enter the city name" autofocus>
+            <button id="search-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+
+        {/* --- Skeleton Loader for Weather Icon --- */}
+        <div class="weather-icon-skeleton skeleton"></div>
+        {/* Actual Weather Icon (hidden while loading) */}
+        <div class="weather-icon" style="display: none;">
+            <img src="./Assets/sun.png" alt="Weather Condition">
+        </div>
+
+        {/* --- Skeleton Loader for Temperature --- */}
+        <div id="temperature-skeleton" class="temp-skeleton skeleton"></div>
+        {/* Actual Temperature (hidden while loading) */}
+        <div id="temperature" class="temp" style="display: none;"></div>
+
+        {/* --- Skeleton Loader for City --- */}
+        <div class="city-skeleton skeleton"></div>
+        {/* Actual City (hidden while loading) */}
+        <div class="city" style="display: none;"></div>
+
+
+        <div class="weather-info">
+            <div class="humidity">
+                <i class="fa-solid fa-water fa-lg"></i>
+                <div class="humit-info">
+                    {/* --- Skeleton Loader for Humidity Data --- */}
+                    <p class="humidity-num-skeleton skeleton"></p>
+                    <p class="humidity-text-skeleton skeleton"></p>
+                    {/* Actual Humidity Data (hidden while loading) */}
+                    <p class="humidity-num" style="display: none;">48%</p>
+                    <p class="humidity-text" style="display: none;">Humidity</p>
+                </div>
+            </div>
+            <div class="wind">
+                <i class="fa-solid fa-wind fa-lg"></i>
+                <div class="wind-info">
+                    {/* --- Skeleton Loader for Wind Data --- */}
+                    <p class="wind-num-skeleton skeleton"></p>
+                    <p class="wind-text-skeleton skeleton"></p>
+                    {/* Actual Wind Data (hidden while loading) */}
+                    <p class="wind-num" style="display: none;">10.29 km/h</p>
+                    <p class="wind-text" style="display: none;">Wind Speed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

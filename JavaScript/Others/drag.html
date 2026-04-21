@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: rgb(11, 6, 36);
+            font-family: 'Courier New', Courier, monospace;
+            min-height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+        }
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .left, .right {
+            min-height: 400px;
+            width: 300px;
+            margin: 20px;
+            border: 2px dashed #fff;
+        }
+        .box {
+            background-color: rgb(240, 48, 99);
+            color: #fff;
+            height: 60px;
+            width: 250px;
+            padding: 1.3em .5em;
+            margin: 30px;
+            cursor: grab;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper" >
+        <div class="left">
+            <div class="box" draggable="true">::: List Item 1</div>
+            <div class="box" draggable="true">::: List Item 2</div>
+            <div class="box" draggable="true">::: List Item 3</div>
+            <div class="box" draggable="true">::: List Item 4</div>
+        </div>
+        <div class="right">
+            
+        </div>
+    </div>
+    <script>
+        const boxs = document.querySelectorAll('.box');
+        const rightbox = document.querySelector('.right');
+        const leftbox = document.querySelector('.left');
+
+        // boxs.forEach(drag => {
+        //     drag.addEventListener('dragstart', () => {
+        //         console.log('drag started!!')
+        //         rightbox.addEventListener('dragover', (e) => {
+        //         e.preventDefault();
+        //         });
+        //         rightbox.addEventListener('drop', (e) => {
+        //             rightbox.appendChild(selected);
+        //             selected = null;
+        //         })
+        //         leftbox.addEventListener('dragover', (e) => {
+        //             e.preventDefault();
+        //         });
+        //         leftbox.addEventListener('drop', (e) => {
+        //             leftbox.appendChild(selected);
+        //             selected = null;
+        //         })
+        //         })
+
+        // })
+        for(box of boxs) {
+            box.addEventListener('dragstart', (e) => {
+                let selected = e.target;
+                
+                rightbox.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                });
+                rightbox.addEventListener('drop', (e) => {
+                    rightbox.appendChild(selected);
+                    selected = null;
+                })
+                leftbox.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                });
+                leftbox.addEventListener('drop', (e) => {
+                    leftbox.appendChild(selected);
+                    selected = null;
+                })
+            })
+        }
+    </script>
+</body>
+</html>

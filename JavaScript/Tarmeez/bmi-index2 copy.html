@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculate your BMI</title>
+    <style>
+      body {
+        background-image: url(scale.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        color: #fff;
+      }
+      label {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 0.75rem 0 0.5rem;
+      }
+      input {
+        padding: 0.25rem 0;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+      #wrapper {
+        background-color: rgba(22, 22, 22, 50%);
+        text-align: center;
+        padding: 1.5em;
+        margin: 25vh;
+        border-radius: 5px;
+      }
+      #btn {
+        display: block;
+        background-color: #070d13;
+        color: #fff;
+        font-size: 1.15rem;
+        font-weight: bold;
+        padding: 0.75rem 5rem;
+        margin: 1rem auto;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #btn:hover {
+        opacity: 80%;
+      }
+      .final {
+        background-color: #222;
+        color: #fff;
+      }
+      #final-text {
+        margin: 1em 0;
+      }
+      .container {
+        text-align: center;
+        background-color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1 class="main-title">حاسبة مؤشر كتلة الجسم BMI</h1>
+      <label for="height">الطول</label>
+      <input type="text" class="inpt" id="height" dir="ltr" autofocus />
+      <label for="weight">الوزن</label>
+      <input type="text" class="inpt" id="weight" dir="ltr" />
+      <button id="btn">احسب</button>
+      <div class="final">
+        <h3 id="final-number"></h3>
+        <h3 id="final-height"></h3>
+        <h3 id="final-weight"></h3>
+        <h2 id="final-result"></h2>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>FAQ</h2>
+      <p>how to use our wbsite?</p>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis itaque ipsa, fugit hic animi aspernatur distinctio rerum, excepturi dignissimos debitis modi ab explicabo sequi? Eos, qui nihil! Optio, beatae ad.</p>
+
+    </div>
+
+
+<script>
+
+const hgt = document.getElementById('height');
+const wid = document.getElementById('weight');
+const sBtn = document.getElementById('btn');
+const fNum = document.getElementById('final-number');
+const hNum = document.getElementById('final-height');
+const wNum = document.getElementById('final-weight');
+const fResult = document.getElementById('final-result');
+
+
+sBtn.addEventListener('click', ()=>{
+  let hight = hgt.value;
+  let weight = wid.value;
+  let bmi = Number(weight) / ((Number(hight) / 100) ** 2);
+  let reuslt = "إدخال غير صحيح";
+
+  console.log(bmi);
+  fNum.innerText = `BMI = ${bmi}`;
+  hNum.innerText = `الطول: ${hight}cm`;
+  wNum.innerText = `الوزن: ${weight}cm`;
+  let bmiClass = ''
+        switch(true){
+            case (isNaN(bmi)):
+                bmiClass = 'إدخال غير صحيح'
+                break
+            case (bmi < 18):
+                bmiClass = 'نحافة'
+                break
+            case (bmi >= 18) && (bmi <= 24.9):
+                bmiClass = 'وزن مثالي'
+                break
+            case (bmi >= 25) && (bmi <= 29.9):
+                bmiClass = 'وزن زائد'
+                break  
+            case (bmi >= 30) && (bmi <= 34.9):
+                bmiClass = 'سمنة درجة أولى'
+                break     
+            case (bmi >= 35) && (bmi <= 39.9):
+                bmiClass = 'سمنة درجة ثانية'
+                break  
+            default:
+                bmiClass = 'سمنة خطيرة'        
+        
+        }
+
+  fResult.innerText = `${bmiClass}`
+})
+
+
+  
+
+
+</script>
+  

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/8a91cbe719.js" crossorigin="anonymous"></script>
+    <script src="C:\Users\idiri\OneDrive\Codes\Front-End\JavaScript\Tarmeez\Advance-JS\Axios\node_modules\axios\dist\axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Auth Challenge</title>
+</head>
+<body>
+    <div class="container">
+        <div class="login-card">
+            <div class="logo"><img src="logo.jpg" alt="" srcset=""></div>
+            <h2 class="title">Welcome Back</h2>
+            <p>Please enter your details to login</p>
+            <form action="submit">
+                <div class="email-field">
+                    <label for="email">Email</label>
+                    <input required type="email" name="email" id="email" placeholder="test@compnay.com">
+                </div>
+                <div class="password">
+                    <label for="password">Password</label>
+                    
+                    <div class="show-password">
+                        <input required type="password" name="password" id="password"> 
+                        <i id="eye-opened" class="fa-solid fa-eye hidden"></i>
+                        <i id="eye-closed" class="fa-solid fa-eye-slash"></i>
+                    </div>
+                </div>
+                
+                <div class="login-options">
+                    <div class="remember">
+                        <input type="checkbox" name="remember-me" id="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                    <a href="#" class="forget">Forget the password</a>
+                </div>
+                <button id="login-btn">Log in</button>
+            </form>
+        </div>
+        <div class="successful-login hidden">
+            <h2>Login successful</h2>
+            <p class="user-info">Welcome Back <span id="user-name">test@compnay.com</span></p>
+        </div>
+    </div>
+
+
+
+    <script src="app.js"></script>
+</body>
+</html>
