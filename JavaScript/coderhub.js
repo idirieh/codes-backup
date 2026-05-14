@@ -75,11 +75,13 @@ maxProfit([]);
 //*********/
 
 function calculateTotalFastingTime(startTimes, endTimes) {
-  return;
+  return Math.sum(...startTimes);
 }
 
-startTimes = ["04:30", "05:00"];
-endTimes = ["18:30", "18:00"];
+// startTimes = ["04:30", "05:00"];
+// endTimes = ["18:30", "18:00"];
+startTimes = ["04", "05"];
+endTimes = ["18", "18"];
 
 console.log(calculateTotalFastingTime(startTimes, endTimes));
 
@@ -96,3 +98,26 @@ function getResult(arr) {
 getResult(arr);
 // Ouput
 // [39, 3, 'ACZ']
+
+const mStr = " Hello  ";
+console.log(mStr.trim().length);
+
+function isBango(name) {
+  return name.toLowerCase()[0] == "r"
+    ? `${name} you are bango`
+    : `${name} you are not bango`;
+}
+array = ["taco", "Rome", "Yasser", "Rami", "Ahmed"];
+array.forEach((n) => {
+  console.log(isBango(n));
+});
+
+// for (let index = 0; index < array.length; index++) {
+//   console.log(isBango(array[index]))
+// }
+
+const nums = ["5", 9, "8", "1"];
+
+const myTotal = nums.reduce((a, n) => a + +n, 0);
+
+console.log(myTotal);
