@@ -74,17 +74,29 @@ maxProfit([]);
 
 //*********/
 
+console.log("coderHub");
+
+const startTime = ["04:30", "05:00"];
+const endTime = ["18:30", "18:00"];
 function calculateTotalFastingTime(startTimes, endTimes) {
-  return Math.sum(...startTimes);
+  // write your code here
+  let startSum = 0;
+  let endSum = 0;
+
+  startTime.forEach((element) => {
+    startSum += +element.replaceAll(":", ".");
+  });
+
+  endTime.forEach((element) => {
+    endSum += +element.replaceAll(":", ".");
+  });
+
+  totalH = endSum - startSum;
+  return Math.round(totalH);
 }
 
-// startTimes = ["04:30", "05:00"];
-// endTimes = ["18:30", "18:00"];
-startTimes = ["04", "05"];
-endTimes = ["18", "18"];
-
-console.log(calculateTotalFastingTime(startTimes, endTimes));
-
+// calculateTotalFastingTime(startTime, endTime);
+console.log(calculateTotalFastingTime(startTime, endTime));
 /*ElZero */
 
 let arr = [1, 10, 15, -2, -5, 0, "Z", "A", 8, -30, 5, "C"];
