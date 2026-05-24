@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac-Toe Challenge</title>
+    <style>
+      /* Reset and Base Styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #0f172a; /* Deep slate dark mode background */
+        color: #f8fafc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      /* Center Container */
+      .game-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+
+      /* Game Status Text */
+      .status {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: #38bdf8; /* Bright sky blue */
+        background: #1e293b;
+        padding: 8px 16px;
+        border-radius: 8px;
+        min-height: 43px; /* Prevents layout shifting when text updates */
+        display: flex;
+        align-items: center;
+      }
+
+      /* 3x3 Grid Layout */
+      .board {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+        gap: 10px;
+        background-color: #334155; /* Board border lines */
+        padding: 10px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Individual Grid Cells */
+      .cell {
+        background-color: #1e293b; /* Cell background color */
+        border: none;
+        border-radius: 8px;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #f8fafc;
+        cursor: pointer;
+        transition:
+          background-color 0.2s ease,
+          transform 0.1s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Hover effects for empty cells */
+      .cell:hover {
+        background-color: #475569;
+      }
+
+      .cell:active {
+        transform: scale(0.95);
+      }
+
+      /* Disable clicking on filled cells or ended games via JS if needed */
+      .cell:disabled {
+        cursor: not-allowed;
+      }
+
+      /* Restart Button */
+      .reset-btn {
+        background-color: #2563eb;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        margin-top: 10px;
+      }
+
+      .reset-btn:hover {
+        background-color: #1d4ed8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game-container">
+      <h1>Tic-Tac-Toe</h1>
+
+      <!-- Status message to show whose turn it is or who won -->
+      <div class="status" id="status-text">Player X's turn</div>
+
+      <!-- The 3x3 Grid Board -->
+      <div class="board" id="board">
+        <button class="cell" data-index="0"></button>
+        <button class="cell" data-index="1"></button>
+        <button class="cell" data-index="2"></button>
+        <button class="cell" data-index="3"></button>
+        <button class="cell" data-index="4"></button>
+        <button class="cell" data-index="5"></button>
+        <button class="cell" data-index="6"></button>
+        <button class="cell" data-index="7"></button>
+        <button class="cell" data-index="8"></button>
+      </div>
+
+      <!-- Reset Button -->
+      <button class="reset-btn" id="reset-btn">Restart Game</button>
+    </div>
+
+    <script>
+      const cells = document.querySelectorAll(".cell");
+      const statusText = document.getElementById("status-text");
+      const board = document.getElementById("board");
+      const resetBtn = document.getElementById("reset-btn");
+      const winConditions = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ];
+
+      let currentPlayer = "X";
+      let options = ["", "", "", "", "", "", "", "", ""];
+      let running = false;
+
+      initilizeGame();
+
+      function initilizeGame() {
+        cells.forEach((cell) => cell.addEventListener("click", cellClicked));
+        resetBtn.addEventListener("click", restartGame);
+        statusText.textContent = `Player ${currentPlayer}'s turn`;
+      }
+      function cellClicked() {
+        const cellIndex = this.getAttribute("data-index");
+        this.textContent = `${currentPlayer}`;
+        changePlayer();
+      }
+      function updateCell(cell, index) {}
+      function changePlayer() {
+        currentPlayer == "X" ? (currentPlayer = "O") : (currentPlayer = "X");
+      }
+      function checkWinner() {}
+      function restartGame() {
+        cells.forEach((cell) => (cell.textContent = ""));
+      }
+    </script>
+  </body>
+</html>
